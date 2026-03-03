@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DENTIST STUDIO® | Aesthetic & Precision</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;800&family=Playfair+Display:italic,wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg: #0d0d0d;
+            --text: #e5e5e5;
+            --accent: #b5a48b; /* Oro opaco / Champagne */
+            --font-main: 'Inter', sans-serif;
+            --font-serif: 'Playfair Display', serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: none; /* Nascondiamo il cursore per quello custom */
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: var(--font-main);
+            overflow-x: hidden;
+            line-height: 1.4;
+        }
+
+        /* --- Custom Cursor --- */
+        .cursor {
+            width: 12px;
+            height: 12px;
+            background: var(--accent);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: difference;
+            transition: transform 0.1s ease;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 40px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-weight: 800;
+            letter-spacing: -1px;
+            font-size: 1.2rem;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.6;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover { opacity: 1; }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 10%;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 10vw, 12rem);
+            font-weight: 800;
+            line-height: 0.85;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            display: block;
+            font-family: var(--font-serif);
+            font-weight: 400;
+            font-style: italic;
+            color: var(--accent);
+            text-transform: none;
+            margin-left: 5vw;
+        }
+
+        /* --- Horizontal Scroll Section --- */
+        .horizontal-container {
+            width: 300vw; /* 3 sezioni da 100vw */
+            height: 100vh;
+            display: flex;
+            flex-wrap: nowrap;
+        }
+
+        .panel {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 0 10%;
+        }
+
+        .panel-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .panel-number {
+            position: absolute;
+            top: 15%;
+            left: 5%;
+            font-size: 10rem;
+            font-weight: 800;
+            opacity: 0.05;
+        }
+
+        .panel img {
+            width: 100%;
+            height: 60vh;
+            object-fit: cover;
+            filter: grayscale(1);
+            transition: filter 0.8s ease;
+        }
+
+        .panel:hover img { filter: grayscale(0); }
+
+        .panel h2 {
+            font-size: 4rem;
+            font-family: var(--font-serif);
+            margin-bottom: 20px;
+        }
+
+        /* --- Footer / Booking --- */
+        .footer {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .cta-big {
+            font-size: 8vw;
+            font-weight: 800;
+            color: transparent;
+            -webkit-text-stroke: 1px var(--text);
+            text-decoration: none;
+            transition: all 0.5s;
+        }
+
+        .cta-big:hover {
+            color: var(--text);
+            -webkit-text-stroke: 1px var(--text);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .panel-content { grid-template-columns: 1fr; }
+            nav { padding: 20px; }
+            .hero h1 { font-size: 4rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cursor"></div>
+
+    <nav>
+        <div class="logo">STUDIO® DENTAIRE</div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#services">Experience</a>
+            <a href="#contact">Book</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <h1 class="reveal">Pure<br><span>Precision</span></h1>
+            <p style="max-width: 400px; opacity: 0.5;">Un'esperienza odontoiatrica ridefinita attraverso l'arte, la tecnologia e il comfort assoluto.</p>
+        </section>
+
+        <div class="horizontal-container">
+            <section class="panel">
+                <span class="panel-number">01</span>
+                <div class="panel-content">
+                    <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1000" alt="Studio">
+                    <div>
+                        <h2>L'Estetica</h2>
+                        <p>Non curiamo solo denti, progettiamo sorrisi che riflettono la tua identità unica. Precisione millimetrica incontra visione artistica.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="panel">
+                <span class="panel-number">02</span>
+                <div class="panel-content">
+                    <div>
+                        <h2>La Scienza</h2>
+                        <p>Utilizziamo le tecnologie digitali più avanzate per garantire trattamenti minimamente invasivi e risultati duraturi.</p>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=1000" alt="Tecnologia">
+                </div>
+            </section>
+
+            <section class="panel">
+                <span class="panel-number">03</span>
+                <div class="panel-content">
+                    <img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&q=80&w=1000" alt="Comfort">
+                    <div>
+                        <h2>Il Silenzio</h2>
+                        <p>Dimentica lo stress della clinica. Il nostro studio è progettato come una lounge di lusso per il tuo benessere mentale.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <section class="footer" id="contact">
+            <p style="margin-bottom: 20px; opacity: 0.6;">Pronto per il cambiamento?</p>
+            <a href="mailto:hello@studiodentaire.com" class="cta-big">PRENOTA ORA</a>
+        </section>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // 1. Cursore Custom
+        const cursor = document.querySelector('.cursor');
+        document.addEventListener('mousemove', (e) => {
+            gsap.to(cursor, {
+                x: e.clientX,
+                y: e.clientY,
+                duration: 0.1
+            });
+        });
+
+        // 2. Animazione Hero (Entrata)
+        gsap.from(".reveal", {
+            y: 100,
+            opacity: 0,
+            duration: 1.5,
+            ease: "power4.out",
+            skewY: 5
+        });
+
+        // 3. Scroll Orizzontale
+        let sections = gsap.utils.toArray(".panel");
+
+        gsap.to(sections, {
+            xPercent: -100 * (sections.length - 1),
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".horizontal-container",
+                pin: true,
+                scrub: 1, // Lega l'animazione alla rotella del mouse
+                snap: 1 / (sections.length - 1),
+                end: () => "+=" + document.querySelector(".horizontal-container").offsetWidth
+            }
+        });
+
+        // 4. Parallasse per le immagini nelle slide
+        sections.forEach((panel) => {
+            const img = panel.querySelector('img');
+            gsap.from(img, {
+                x: 50,
+                scrollTrigger: {
+                    trigger: panel,
+                    containerAnimation: gsap.to(sections, {xPercent: -100 * (sections.length - 1), ease: "none"}),
+                    start: "left center",
+                    scrub: true
+                }
+            });
+        });
+    </script>
+</body>
+</html>
