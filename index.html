@@ -3,45 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DENTIST STUDIO® | Aesthetic & Precision</title>
+    <title>STUDIO BUONGIORNO | Eccellenza Odontoiatrica</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;800&family=Playfair+Display:italic,wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&family=Plus+Jakarta+Sans:ital,wght@0,300;1,200&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg: #0d0d0d;
-            --text: #e5e5e5;
-            --accent: #b5a48b; /* Oro opaco / Champagne */
-            --font-main: 'Inter', sans-serif;
-            --font-serif: 'Playfair Display', serif;
+            /* Palette Medica Premium */
+            --bg-pearl: #F8FAFA;       /* Bianco Perla pulito */
+            --medical-mint: #7FB3B3;   /* Verde Salvia/Menta rilassante */
+            --deep-petrol: #1A2E35;    /* Petrolio per autorità e testo */
+            --soft-teal: #E1EDEC;      /* Highlight delicato */
+            --font-main: 'Outfit', sans-serif;
+            --font-accent: 'Plus Jakarta Sans', sans-serif;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            cursor: none; /* Nascondiamo il cursore per quello custom */
+            cursor: none;
         }
 
         body {
-            background-color: var(--bg);
-            color: var(--text);
+            background-color: var(--bg-pearl);
+            color: var(--deep-petrol);
             font-family: var(--font-main);
             overflow-x: hidden;
-            line-height: 1.4;
+            -webkit-font-smoothing: antialiased;
         }
 
         /* --- Custom Cursor --- */
         .cursor {
-            width: 12px;
-            height: 12px;
-            background: var(--accent);
+            width: 15px;
+            height: 15px;
+            background: var(--medical-mint);
             border-radius: 50%;
             position: fixed;
             pointer-events: none;
-            z-index: 9999;
-            mix-blend-mode: difference;
-            transition: transform 0.1s ease;
+            z-index: 10000;
         }
 
         /* --- Navigation --- */
@@ -49,138 +49,159 @@
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 40px 60px;
+            padding: 30px 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
+            background: rgba(248, 250, 250, 0.8);
+            backdrop-filter: blur(10px);
         }
 
         .logo {
-            font-weight: 800;
-            letter-spacing: -1px;
-            font-size: 1.2rem;
+            font-weight: 700;
+            font-size: 1.4rem;
+            letter-spacing: -0.5px;
+            color: var(--deep-petrol);
+            text-transform: uppercase;
         }
 
         .nav-links a {
-            color: var(--text);
+            color: var(--deep-petrol);
             text-decoration: none;
-            margin-left: 30px;
-            font-size: 0.9rem;
+            margin-left: 40px;
+            font-size: 0.85rem;
+            font-weight: 400;
+            letter-spacing: 1px;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            opacity: 0.6;
-            transition: opacity 0.3s;
         }
 
-        .nav-links a:hover { opacity: 1; }
-
-        /* --- Hero Section --- */
+        /* --- Hero --- */
         .hero {
             height: 100vh;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+            align-items: center;
             padding: 0 10%;
+            position: relative;
+        }
+
+        .hero-content {
+            z-index: 2;
+            max-width: 800px;
         }
 
         .hero h1 {
-            font-size: clamp(3rem, 10vw, 12rem);
-            font-weight: 800;
-            line-height: 0.85;
-            text-transform: uppercase;
+            font-size: clamp(4rem, 12vw, 10rem);
+            line-height: 0.9;
+            font-weight: 700;
             margin-bottom: 20px;
         }
 
         .hero h1 span {
             display: block;
-            font-family: var(--font-serif);
-            font-weight: 400;
+            color: var(--medical-mint);
+            font-family: var(--font-accent);
+            font-weight: 200;
             font-style: italic;
-            color: var(--accent);
-            text-transform: none;
-            margin-left: 5vw;
         }
 
-        /* --- Horizontal Scroll Section --- */
-        .horizontal-container {
-            width: 300vw; /* 3 sezioni da 100vw */
+        .hero-img {
+            position: absolute;
+            right: 5%;
+            width: 40vw;
+            height: 70vh;
+            background: url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=2070') center/cover no-repeat;
+            border-radius: 200px 200px 0 0; /* Forma a "pillola" medica moderna */
+            z-index: 1;
+        }
+
+        /* --- Horizontal Experience Section --- */
+        .horizontal-wrap {
+            width: 300vw;
             height: 100vh;
             display: flex;
-            flex-wrap: nowrap;
         }
 
-        .panel {
+        .section-title {
+            position: absolute;
+            top: 10%;
+            left: 5%;
+            font-size: 0.8rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--medical-mint);
+        }
+
+        .slide {
             width: 100vw;
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
-            padding: 0 10%;
+            padding: 100px;
         }
 
-        .panel-content {
+        .card {
+            background: var(--soft-teal);
+            padding: 80px;
+            width: 80%;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            gap: 60px;
             align-items: center;
+            border-radius: 40px;
         }
 
-        .panel-number {
-            position: absolute;
-            top: 15%;
-            left: 5%;
-            font-size: 10rem;
-            font-weight: 800;
-            opacity: 0.05;
-        }
-
-        .panel img {
+        .card img {
             width: 100%;
-            height: 60vh;
+            height: 400px;
             object-fit: cover;
-            filter: grayscale(1);
-            transition: filter 0.8s ease;
+            border-radius: 20px;
         }
 
-        .panel:hover img { filter: grayscale(0); }
-
-        .panel h2 {
-            font-size: 4rem;
-            font-family: var(--font-serif);
+        .card-info h2 {
+            font-size: 3.5rem;
             margin-bottom: 20px;
         }
 
-        /* --- Footer / Booking --- */
-        .footer {
-            height: 100vh;
+        /* --- Booking / Footer --- */
+        .booking {
+            height: 80vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            background: var(--deep-petrol);
+            color: var(--bg-pearl);
             text-align: center;
         }
 
-        .cta-big {
-            font-size: 8vw;
-            font-weight: 800;
-            color: transparent;
-            -webkit-text-stroke: 1px var(--text);
-            text-decoration: none;
-            transition: all 0.5s;
+        .booking h2 {
+            font-size: 5vw;
+            margin-bottom: 40px;
         }
 
-        .cta-big:hover {
-            color: var(--text);
-            -webkit-text-stroke: 1px var(--text);
+        .btn {
+            padding: 20px 50px;
+            border: 1px solid var(--medical-mint);
+            color: var(--medical-mint);
+            text-decoration: none;
+            border-radius: 100px;
+            font-weight: 600;
+            transition: 0.4s;
+        }
+
+        .btn:hover {
+            background: var(--medical-mint);
+            color: var(--deep-petrol);
         }
 
         /* Responsive */
-        @media (max-width: 768px) {
-            .panel-content { grid-template-columns: 1fr; }
-            nav { padding: 20px; }
+        @media (max-width: 900px) {
             .hero h1 { font-size: 4rem; }
+            .hero-img { display: none; }
+            .card { grid-template-columns: 1fr; padding: 40px; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
@@ -189,58 +210,61 @@
     <div class="cursor"></div>
 
     <nav>
-        <div class="logo">STUDIO® DENTAIRE</div>
+        <div class="logo">Studio Buongiorno</div>
         <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#services">Experience</a>
-            <a href="#contact">Book</a>
+            <a href="#">Visione</a>
+            <a href="#">Trattamenti</a>
+            <a href="#">Contatti</a>
         </div>
     </nav>
 
     <main>
         <section class="hero">
-            <h1 class="reveal">Pure<br><span>Precision</span></h1>
-            <p style="max-width: 400px; opacity: 0.5;">Un'esperienza odontoiatrica ridefinita attraverso l'arte, la tecnologia e il comfort assoluto.</p>
+            <div class="hero-content">
+                <h1 id="hero-title">Sorriso <span>Sincero.</span></h1>
+                <p style="font-size: 1.2rem; opacity: 0.7; max-width: 450px;">
+                    L'eccellenza medica incontra il design. Benvenuti nel nuovo standard dello Studio Buongiorno.
+                </p>
+            </div>
+            <div class="hero-img"></div>
         </section>
 
-        <div class="horizontal-container">
-            <section class="panel">
-                <span class="panel-number">01</span>
-                <div class="panel-content">
-                    <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1000" alt="Studio">
-                    <div>
-                        <h2>L'Estetica</h2>
-                        <p>Non curiamo solo denti, progettiamo sorrisi che riflettono la tua identità unica. Precisione millimetrica incontra visione artistica.</p>
+        <div class="horizontal-wrap" id="experience">
+            <section class="slide">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1590105577767-e21a1067899f?q=80&w=1974" alt="Trattamento">
+                    <div class="card-info">
+                        <h2>L'Estetica Digitale</h2>
+                        <p>Analizziamo la simmetria del tuo volto per creare un'armonia dentale perfetta tramite tecnologie 3D.</p>
                     </div>
                 </div>
             </section>
 
-            <section class="panel">
-                <span class="panel-number">02</span>
-                <div class="panel-content">
-                    <div>
-                        <h2>La Scienza</h2>
-                        <p>Utilizziamo le tecnologie digitali più avanzate per garantire trattamenti minimamente invasivi e risultati duraturi.</p>
+            <section class="slide">
+                <div class="card">
+                    <div class="card-info">
+                        <h2>Chirurgia Invisibile</h2>
+                        <p>Metodi minimamente invasivi per garantire un recupero rapido e nessun disagio post-operatorio.</p>
                     </div>
-                    <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=1000" alt="Tecnologia">
+                    <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2080" alt="Clinica">
                 </div>
             </section>
 
-            <section class="panel">
-                <span class="panel-number">03</span>
-                <div class="panel-content">
-                    <img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&q=80&w=1000" alt="Comfort">
-                    <div>
-                        <h2>Il Silenzio</h2>
-                        <p>Dimentica lo stress della clinica. Il nostro studio è progettato come una lounge di lusso per il tuo benessere mentale.</p>
+            <section class="slide">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1584017947486-53d7d72b38f7?q=80&w=2070" alt="Medical">
+                    <div class="card-info">
+                        <h2>Protocolli Puri</h2>
+                        <p>Utilizziamo esclusivamente materiali biocompatibili di grado farmaceutico per la tua sicurezza a lungo termine.</p>
                     </div>
                 </div>
             </section>
         </div>
 
-        <section class="footer" id="contact">
-            <p style="margin-bottom: 20px; opacity: 0.6;">Pronto per il cambiamento?</p>
-            <a href="mailto:hello@studiodentaire.com" class="cta-big">PRENOTA ORA</a>
+        <section class="booking">
+            <h2>Pronto a splendere?</h2>
+            <a href="#" class="btn">PRENOTA CONSULENZA</a>
+            <p style="margin-top: 50px; font-size: 0.8rem; opacity: 0.5;">© 2026 Studio Buongiorno | Via del Benessere, Milano</p>
         </section>
     </main>
 
@@ -250,50 +274,59 @@
     <script>
         gsap.registerPlugin(ScrollTrigger);
 
-        // 1. Cursore Custom
+        // Cursore custom
         const cursor = document.querySelector('.cursor');
         document.addEventListener('mousemove', (e) => {
             gsap.to(cursor, {
                 x: e.clientX,
                 y: e.clientY,
-                duration: 0.1
+                duration: 0.15,
+                ease: "power2.out"
             });
         });
 
-        // 2. Animazione Hero (Entrata)
-        gsap.from(".reveal", {
-            y: 100,
+        // Animazione Hero
+        gsap.from("#hero-title span", {
+            x: -100,
             opacity: 0,
             duration: 1.5,
-            ease: "power4.out",
-            skewY: 5
+            delay: 0.5,
+            ease: "power4.out"
         });
 
-        // 3. Scroll Orizzontale
-        let sections = gsap.utils.toArray(".panel");
+        gsap.from(".hero-img", {
+            scale: 1.2,
+            opacity: 0,
+            duration: 2,
+            ease: "power4.out"
+        });
 
-        gsap.to(sections, {
-            xPercent: -100 * (sections.length - 1),
+        // Scroll Orizzontale
+        const slides = gsap.utils.toArray(".slide");
+        gsap.to(slides, {
+            xPercent: -100 * (slides.length - 1),
             ease: "none",
             scrollTrigger: {
-                trigger: ".horizontal-container",
+                trigger: ".horizontal-wrap",
                 pin: true,
-                scrub: 1, // Lega l'animazione alla rotella del mouse
-                snap: 1 / (sections.length - 1),
-                end: () => "+=" + document.querySelector(".horizontal-container").offsetWidth
+                scrub: 1,
+                snap: 1 / (slides.length - 1),
+                end: () => "+=" + document.querySelector(".horizontal-wrap").offsetWidth
             }
         });
 
-        // 4. Parallasse per le immagini nelle slide
-        sections.forEach((panel) => {
-            const img = panel.querySelector('img');
-            gsap.from(img, {
-                x: 50,
+        // Reveal delle card durante lo scroll
+        slides.forEach((slide) => {
+            const card = slide.querySelector('.card');
+            gsap.from(card, {
+                y: 50,
+                opacity: 0,
+                duration: 1,
                 scrollTrigger: {
-                    trigger: panel,
-                    containerAnimation: gsap.to(sections, {xPercent: -100 * (sections.length - 1), ease: "none"}),
+                    trigger: slide,
                     start: "left center",
-                    scrub: true
+                    containerAnimation: gsap.to(slides, {xPercent: -100 * (slides.length - 1), ease: "none"}),
+                    toggleActions: "play none none reverse"
                 }
             });
         });
